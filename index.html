@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>手写eventEmitter</title>
+</head>
+<body>
+    <script src="./event_my.js"></script>
+    <script>
+        let newEvent = new window.newEvent.EventEmitter();
+        function fun1(arg1,arg2){
+            console.log('pcmEvent===',arg1,arg2)
+        }
+        function fun2(arg1,arg2){
+            console.log('xuEvent====',arg1,arg2)
+        }
+        newEvent.on('pcmEvent',fun1)
+        newEvent.on('xuEvent',fun2)
+        newEvent.emit('pcmEvent',1,2)
+        newEvent.emit('xuEvent',11,22)
+        newEvent.removeLister('pcmEvent',fun1)
+        newEvent.emit('pcmEvent',1,2)
+    </script>
+</body>
+</html>
